@@ -1,7 +1,0 @@
-{
-  "devDependencies": {
-    "@playwright/test": "^1.47.2",
-    "@testing-library/react": "^16.0.1",
-    "jest": "^29.7.0"
-  }
-}

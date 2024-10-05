@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 .venv/
 tests/.venv/
+test-results/
 
 
 # Node.js関連
