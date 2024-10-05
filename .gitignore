@@ -1,0 +1,15 @@
+# Python関連
+venv/
+__pycache__/
+*.pyc
+.venv/
+tests/.venv/
+
+
+# Node.js関連
+node_modules/
+
+# その他
+todomvc/
+.DS_Store
+.env
