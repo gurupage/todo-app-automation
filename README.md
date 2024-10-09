@@ -13,6 +13,7 @@ The purpose is to improve my test automation skills and include it in my portfol
 - **React** - Front-end library
 - **JavaScript (ES6)** - Programming language
 - **Python 3.9.1** - Test scripting language
+- **pytest** - Testing framework for Python
 - **Playwright** - Test automation framework
 - **Node.js** - JavaScript runtime environment
 
