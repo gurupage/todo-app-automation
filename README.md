@@ -27,21 +27,21 @@ The purpose is to improve my test automation skills and include it in my portfol
 ### Set Up The Test Environment 
 
 **Cloning the Repository**
-```Windows (PowerShell)
+```powershell
 git clone https://github.com/your-username/todo-app-automation.git
 cd todo-app-automation
 ```
 
 **Install Dependencies**
 - **Front End(React)**
-```Windows (PowerShell)
+```powershell
 cd react-todo-app
 npm install
 cd ..
 ```
 
 - **Backend**
-```Windows (PowerShell)
+```powershell
 cd tests
 python -m venv venv
 .venv\Scripts\activate
@@ -52,7 +52,7 @@ playwright install
 
 **Activate the App**
 - **React App**
-```Windows (PowerShell)
+```powershell
 cd react-todo-app
 npm start
 cd ..
@@ -60,7 +60,7 @@ cd ..
 
 **Confirm the Test Environment**
 - Confirm to the playwright is installed and install the required browser
-```Windows (PowerShell)
+```powershell
 cd tests
 pip list
 playwright show
@@ -69,7 +69,7 @@ playwright --version
 
 ### Test Execution
 - Enter the command at root directory of the project
-```Windows (PowerShell)
+```powershell
 cd C:\Users\User\todo-app-automation
 .\venv\Scripts\Activate
 Run the Tests
