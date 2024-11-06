@@ -48,6 +48,7 @@ python -m venv venv
 pip install -r requirements.txt
 pip install pytest playwright
 playwright install
+pip install pytest-html
 ```
 
 **Activate the App**
@@ -63,7 +64,6 @@ cd ..
 ```powershell
 cd tests
 pip list
-playwright show
 playwright --version
 ```
 
@@ -72,6 +72,6 @@ playwright --version
 ```powershell
 cd C:\Users\User\todo-app-automation
 .\venv\Scripts\Activate
-Run the Tests
-pytest
+
+pytest --html=report.html --self-contained-html
 ```

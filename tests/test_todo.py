@@ -7,7 +7,7 @@ from playwright.async_api import async_playwright
 async def test_add_todo(page):
 
         # ExpressサーバーのURLを指定
-        page_url = "http://localhost:3001"  # Expressサーバーがポート3001の場合
+        page_url = "http://localhost:3000"  # Expressサーバーがポート3001の場合
         await page.goto(page_url)        
 
         # ToDo追加のテスト
@@ -22,7 +22,7 @@ async def test_add_todo(page):
 async def test_complete_todo(page):
 
         # ExpressサーバーのURLを指定
-        page_url = "http://localhost:3001"  # Expressサーバーがポート3001の場合
+        page_url = "http://localhost:3000"  # Expressサーバーがポート3001の場合
         await page.goto(page_url)        
 
         # ToDo追加のテスト（セットアップ）
@@ -37,7 +37,7 @@ async def test_complete_todo(page):
 async def test_delete_todo(page):
 
         # ExpressサーバーのURLを指定
-        page_url = "http://localhost:3001"  # Expressサーバーがポート3001の場合
+        page_url = "http://localhost:3000"  # Expressサーバーがポート3001の場合
         await page.goto(page_url)        
 
         # ToDo追加のテスト（セットアップ）
