@@ -81,7 +81,7 @@ cd C:\Users\User\todo-app-automation
 pytest --html=report.html --self-contained-html
 ```
 
-### Test Execution
+### Test Report
 Viewing the Test Report
 After test execution, a file named report.html is generated in the project root.
 Open report.html in your web browser to view detailed test results (including screenshots).
