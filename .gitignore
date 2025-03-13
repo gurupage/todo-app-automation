@@ -6,10 +6,6 @@ test-results/
 *.py[cod]
 *$py.class
 
-# 仮想環境
-.venv/
-tests/.venv/
-
 # Node.js関連
 node_modules/
 

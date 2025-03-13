@@ -40,12 +40,18 @@ npm install
 cd ..
 ```
 
-- **Backend**
+- **Test Environment Setup**
 ```powershell
-cd tests
+#Navigate to the todo-app-automation directory
+cd todo-app-automation
+
+#Create a Python virtual environment named venv
 python -m venv venv
+
+#Activate the virtual environment
 .venv\Scripts\activate
-pip install -r requirements.txt
+
+#Install the required browsers for Playwright
 pip install pytest playwright
 playwright install
 pip install pytest-html
@@ -56,13 +62,12 @@ pip install pytest-html
 ```powershell
 cd react-todo-app
 npm start
-cd ..
 ```
 
 **Confirm the Test Environment**
 - Confirm to the playwright is installed and install the required browser
 ```powershell
-cd tests
+cd  todo-app-automation
 pip list
 playwright --version
 ```
@@ -75,3 +80,8 @@ cd C:\Users\User\todo-app-automation
 
 pytest --html=report.html --self-contained-html
 ```
+
+### Test Execution
+Viewing the Test Report
+After test execution, a file named report.html is generated in the project root.
+Open report.html in your web browser to view detailed test results (including screenshots).
