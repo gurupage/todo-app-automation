@@ -14,7 +14,7 @@ formatted_title_time = now.strftime("%Y-%m-%d %H:%M:%S")  # format for title of 
 @pytest_asyncio.fixture
 async def page():
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=False)  # When headless=True, browser won't be shown
+        browser = await playwright.chromium.launch(headless=True)  # When headless=True, browser won't be shown
         context = await browser.new_context()
         page = await context.new_page()
         yield page
