@@ -1,6 +1,7 @@
 # tests/conftest.py
 import os
 import pytest
+import base64
 import pytest_asyncio
 from playwright.async_api import async_playwright
 import datetime
@@ -69,5 +70,15 @@ def pytest_runtest_makereport(item, call):
                 #Base64として埋め込む
                 extra.append(
                      extras.image(img_bytes, mime_type="image/png")
+                )
+            for screenshot in helper.screenshots:
+                #1バイナリファイルを読み込み
+                with open(screenshot, "rb") as f:
+                      raw = f.read()
+                #2 Base64エンコードして文字列に
+                b64str = base64.b64encode(raw).decode("utf-8")
+                #3 文字列としてextras.imageに渡す
+                extra.append(
+                     extras.image(b64str, mime_type="image/png")
                 )
             rep.extra = extra
