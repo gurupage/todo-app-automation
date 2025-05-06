@@ -63,6 +63,11 @@ def pytest_runtest_makereport(item, call):
             extra = getattr(rep, "extra", [])
             # 各スクリーンショットをレポートに追加
             for screenshot in helper.screenshots:
-                extra.append(extras.image(screenshot, mime_type="image/png"))
-
+                #ファイルをバイナリで読み込む
+                with open(screenshot, "rb") as f:
+                     img_bytes = f.read()
+                #Base64として埋め込む
+                extra.append(
+                     extras.image(img_bytes, mime_type="image/png")
+                )
             rep.extra = extra
