@@ -63,14 +63,14 @@ def pytest_runtest_makereport(item, call):
         if helper and helper.screenshots:
             extra = getattr(rep, "extra", [])
             # 各スクリーンショットをレポートに追加
-            for screenshot in helper.screenshots:
-                #ファイルをバイナリで読み込む
-                with open(screenshot, "rb") as f:
-                     img_bytes = f.read()
-                #Base64として埋め込む
-                extra.append(
-                     extras.image(img_bytes, mime_type="image/png")
-                )
+            # for screenshot in helper.screenshots:
+            #     #ファイルをバイナリで読み込む
+            #     with open(screenshot, "rb") as f:
+            #          img_bytes = f.read()
+            #     #Base64として埋め込む
+            #     extra.append(
+            #          extras.image(img_bytes, mime_type="image/png")
+            #     )
             for screenshot in helper.screenshots:
                 #1バイナリファイルを読み込み
                 with open(screenshot, "rb") as f:
