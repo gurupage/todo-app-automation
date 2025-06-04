@@ -84,4 +84,7 @@ pytest --html=report.html --self-contained-html
 ### Test Report
 Viewing the Test Report
 After test execution, a file named report.html is generated in the project root.
-Open report.html in your web browser to view detailed test results (including screenshots).
+Open report.html in your web browser to view detailed test results.  Each test
+captures screenshots and a short video regardless of test success or failure.
+Videos are saved under the `videos` directory and the report contains links to
+download them.
