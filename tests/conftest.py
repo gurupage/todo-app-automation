@@ -13,12 +13,17 @@ formatted_time = now.strftime("%Y%m%d_%H%M%S")  # format for file name
 formatted_title_time = now.strftime("%Y-%m-%d %H:%M:%S")  # format for title of report
 
 @pytest_asyncio.fixture
-async def page():
+async def page(request):
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)  # When headless=True, browser won't be shown
-        context = await browser.new_context()
+        os.makedirs("videos", exist_ok=True)
+        context = await browser.new_context(record_video_dir="videos")
         page = await context.new_page()
         yield page
+        await context.close()
+        if page.video:
+            video_path = await page.video.path()
+            request.node.video_path = video_path
         await browser.close()
 
 # config for file name
@@ -59,18 +64,10 @@ def pytest_runtest_makereport(item, call):
     rep = outcome.get_result()
     # テストの実行(call)フェーズが終了した後に実行
     if rep.when == "call":
+        extra = getattr(rep, "extra", [])
         helper = getattr(item, "screenshot_helper", None)
         if helper and helper.screenshots:
-            extra = getattr(rep, "extra", [])
             # 各スクリーンショットをレポートに追加
-            # for screenshot in helper.screenshots:
-            #     #ファイルをバイナリで読み込む
-            #     with open(screenshot, "rb") as f:
-            #          img_bytes = f.read()
-            #     #Base64として埋め込む
-            #     extra.append(
-            #          extras.image(img_bytes, mime_type="image/png")
-            #     )
             for screenshot in helper.screenshots:
                 #1バイナリファイルを読み込み
                 with open(screenshot, "rb") as f:
@@ -81,4 +78,7 @@ def pytest_runtest_makereport(item, call):
                 extra.append(
                      extras.image(b64str, mime_type="image/png")
                 )
-            rep.extra = extra
+        video_path = getattr(item, "video_path", None)
+        if video_path:
+            extra.append(extras.html(f'<a href="{video_path}">Test Video</a>'))
+        rep.extra = extra
